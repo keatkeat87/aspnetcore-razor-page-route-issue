@@ -1,0 +1,14 @@
+﻿@page 
+
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+@model Project.Pages.About.AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+
+<h1>About</h1>
+<p>@Localizer["value"]</p>
+

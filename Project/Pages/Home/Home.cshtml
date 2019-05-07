@@ -1,0 +1,51 @@
+﻿
+@page "/"
+@model Project.Pages.Home.HomeModel
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+home
+<br />
+
+@*  wrong                                  *@
+@*  output    : /about-us?language=zh-Hans *@
+@*  it should : /zh-Hans/about-us          *@
+<a asp-page="/About/About" asp-route-language="zh-Hans">about</a>
+
+@*  wrong                                  *@
+@*  output    : /about-us?language=en-US   *@
+@*  it should : /en-US/about-us            *@
+<a asp-page="/About/About" asp-route-language="en-US">about</a>
+
+@*  wrong                                  *@
+@*  output    : /                          *@
+@*  it should : /about-us                  *@
+<a asp-page="/About/About">about</a>
+
+@*  match  /about-us?language=other        *@
+<a asp-page="/About/About" asp-route-language="other">about</a>
+
+
+
+
+@*  match /zh-Hans/about-us                *@
+<a asp-page="/About/About" asp-route-language="zh-Hans">about</a>
+
+@*  match /en-US/about-us                  *@
+<a asp-page="/About/About" asp-route-language="en-US">about</a>
+
+@*  wrong                                  *@
+@*  output    : /                          *@
+@*  it should : /about-us                  *@
+<a asp-page="/About/About">about</a>
+
+@*  wrong                                  *@
+@*  output    : /                          *@
+@*  it should : /about-us?language=other   *@
+<a asp-page="/About/About" asp-route-language="other">about</a>
+
+
+
+
